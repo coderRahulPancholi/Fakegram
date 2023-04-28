@@ -1,6 +1,12 @@
 import axios from "axios"
+import { navi } from "./post";
 
-const URL = "https://fakegramapi.onrender.com"
+
+
+// const URL = "https://fakegramapi.onrender.com"
+// const URL = "http://localhost:8000"
+const URL = "https://fakegram-beckend.vercel.app"
+
 
 export const loginuser =(email,password)=> async(dispatch)=>{
 
@@ -64,6 +70,42 @@ export const register =(name,username,email,password)=> async(dispatch)=>{
         payload:userdata.data.user
        })
         
+    } catch (error) {
+        dispatch({
+            type:"registerfail"
+        })
+
+        
+    }
+    
+
+};
+export const logout =()=> async(dispatch)=>{
+
+    try {
+        // dispatch({
+        //     type:"registerrequest"
+        // })
+
+       if(window.confirm("Are You Sure To Logout")){const userdata = await axios.get(`${URL}/logout`,{
+        headers:{
+            "Content-Type":"application/json",
+           " Access-Control-Allow-Origin" :"true"
+        
+        },
+        withCredentials:true
+        
+       })
+       
+       console.log(userdata.data.user)
+
+    //    dispatch({
+    //     type:"registersucess",
+    //     payload:userdata.data.user
+    //    })
+ window.location.pathname ="/"
+
+    }
     } catch (error) {
         dispatch({
             type:"registerfail"
@@ -206,7 +248,8 @@ export const rootuserposts =()=> async(dispatch)=>{
     
 
 };
-export const searchuser =(userid)=> async(dispatch)=>{
+export const searchuser =(navigate,userid)=> async(dispatch)=>{
+
 
     try {
         dispatch({
@@ -227,6 +270,7 @@ export const searchuser =(userid)=> async(dispatch)=>{
         type:"searchusersucess",
         payload:userdata.data.user
        })
+      dispatch(navi(navigate,userid))
         
     } catch (error) {
         dispatch({

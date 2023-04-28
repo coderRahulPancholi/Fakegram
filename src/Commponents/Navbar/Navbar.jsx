@@ -1,10 +1,21 @@
 import React from 'react'
 import "./navbar.css"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CgProfile } from 'react-icons/cg';
+import { logout } from '../../Actions/user';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
     const {user} = useSelector(state=>state.mainreducer)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+
+    const logoutuser=()=>{
+       dispatch(logout())
+
+
+    }
   return (
     <header className='header'>
       <div className='cont'>
@@ -14,7 +25,7 @@ function Navbar() {
 
         </div>
         <div className='sub sub2'>
-            <div className='profile df ac'>
+            <div className='profile df ac' onClick={()=>navigate("/about")}>
                 <div className='df ac'>
                 <CgProfile size={25}/>
                 </div>
@@ -22,9 +33,13 @@ function Navbar() {
                 <p>{user.name.toUpperCase()} </p>
 
                 </div>
+
             
             
 
+            </div>
+            <div>
+              <button onClick={logoutuser}>Logout</button>
             </div>
          
             

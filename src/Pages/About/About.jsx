@@ -3,7 +3,8 @@ import Wrapper from './about'
 import { useDispatch, useSelector } from 'react-redux'
 import { loaduser, rootuserposts } from '../../Actions/user'
 // import Card from '../../Commponents/Postcard/Card'
-import { deletepost } from '../../Actions/post'
+// import { deletepost } from '../../Actions/post'
+import Card from '../../Commponents/Postcard/Card'
 
 
 function About({ name, username, followers, following, posts, profileImage, bio, postsArray }) {
@@ -52,13 +53,8 @@ useEffect(()=>{
 <div className="postarray ">
 {userposts?userposts.map((e)=>{
   return(
-<div className='posts' key={e._id}>
-  <p>{e.caption}</p>
 
-  <button onClick={()=>dispatch(deletepost(e._id))}>Delete</button>
-
-
-</div>
+<Card caption={e.caption} likes={e.likes.length} isliked={e.likes.some((e)=>e === user._id)} id={e._id} isdelete = {true} key={e._id}/>
   )
 
 }):null}

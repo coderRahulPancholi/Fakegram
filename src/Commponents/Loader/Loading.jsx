@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 width: 100vw;
 height: 100vh;
 z-index: 99;
-background-color: red;
+background-color: #e6e1e1;
 
 
 `

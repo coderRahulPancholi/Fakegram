@@ -38,7 +38,7 @@ width: 60px;
 height: 60px;
 border-radius: 100%;
 /* border-radius: 10px; */
-cursor: pointer;
+/* cursor: pointer; */
 justify-content: center;
 transition: 0.5s;
 
@@ -66,7 +66,7 @@ height: 60px;
 border-radius: 10px;
 /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
 box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-cursor: pointer;
+/* cursor: pointer; */
 justify-content: center;
     transform: translateY(-15px);
     transition: 0.5s;

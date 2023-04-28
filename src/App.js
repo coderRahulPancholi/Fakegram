@@ -15,15 +15,14 @@ import UserPage from "./Pages/UserPage/UserPage";
 
 function App() {
   const [loader,setLoader] = useState(true)
-  const { isauthed } = useSelector((state) => state.mainreducer);
+  const { isauthed,loading } = useSelector((state) => state.mainreducer);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loaduser());
-    setTimeout(() => {
-      setLoader(false)
-      
-    }, 1000);
+   if(!loading){
+    setLoader(false)
+   }
     // eslint-disable-next-line 
   }, []);
 

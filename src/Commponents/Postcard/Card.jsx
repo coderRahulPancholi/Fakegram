@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import './card.css';
 import { useDispatch } from 'react-redux';
-import { likepost } from '../../Actions/post';
+import { deletepost, likepost } from '../../Actions/post';
 import {AiOutlineLike,AiFillLike} from 'react-icons/ai'
 
-const Card = ({ image, likes, comments, caption, username, userImage,postid,likearray,date,id,isliked }) => {
+const Card = ({ image, likes, comments, caption, username, userImage,postid,likearray,date,id,isliked,isaccount = false,isdelete =false }) => {
 
   const [like,setlike] = useState(isliked)
   const [likecount,setlikecount] = useState(likes)
@@ -30,8 +30,10 @@ const Card = ({ image, likes, comments, caption, username, userImage,postid,like
        
         </div>
         <div className="post-stats">
-          <span className= "likes" onClick={()=>likfun()}>{likecount} {like?<AiFillLike size={25}/>:<AiOutlineLike size={25}/>}</span>
+          <span className= "likes" onClick={()=>likfun()}>{likecount} {like?<AiFillLike size={25} style={{color:"#fa5794"}}/>:<AiOutlineLike size={25}/>}</span>
           <span className="comments">{comments} Comments</span>
+          {isdelete?
+          <button className="comments" onClick={()=>dispatch(deletepost(id))}>Delete</button>:null}
           
         </div>
         <p>{new Date(date).getDate() === new Date(Date.now()).getDate()?"Today":new Date(date).getDate() === new Date(Date.now()).getDate() - 1 ?"Yesterday":date}</p>

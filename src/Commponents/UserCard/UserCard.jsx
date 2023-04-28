@@ -1,13 +1,17 @@
 import React from 'react'
 import Usercard from './usercardcss'
 import { useNavigate } from 'react-router-dom'
+import { searchuser } from '../../Actions/user'
+import { useDispatch } from 'react-redux'
 
 function UserCard({ name, username, followers, following, posts, profileImage ,id}) {
+const dispatch = useDispatch()
 const navigate = useNavigate()
+
   
   return (
 
-    <Usercard onClick={()=>navigate(`/user/${id}`)}>
+    <Usercard onClick={()=>dispatch(searchuser(navigate,id))}>
       
     <div className="instagram-profile-card">
       <div className="profile-info">

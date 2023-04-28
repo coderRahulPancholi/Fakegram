@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import UserPageWrapper from './userpagecss'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { followuser, searchuser } from '../../Actions/user'
+import { followuser } from '../../Actions/user'
 
 function UserPage() {
 const dispatch = useDispatch()
-    const {userid} = useParams()
+    // const {userid} = useParams()
     const {searcheduser,user} = useSelector(s=>s.mainreducer)
     const e = searcheduser
 
@@ -14,7 +14,7 @@ const dispatch = useDispatch()
     const [isfollowed,setIsfollowed] = useState(is)
 
     useEffect(()=>{
-dispatch(searchuser(userid))
+// dispatch(searchuser(userid))
         console.log(isfollowed)
 // eslint-disable-next-line
     },[])
