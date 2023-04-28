@@ -11,7 +11,7 @@ const navigate = useNavigate()
       
     <div className="instagram-profile-card">
       <div className="profile-info">
-        <img src={profileImage?profileImage:"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"} alt="Profile Picture" className="profile-image" />
+        <img src={profileImage?profileImage:"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"} alt="" className="profile-image" />
         <div className="user-info">
           <h3 className="name">{name}</h3>
           <h4 className="username">@ {username}</h4>

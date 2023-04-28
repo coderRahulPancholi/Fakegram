@@ -7,6 +7,13 @@ function NewPost() {
     const {user} = useSelector(s=>s.mainreducer)
     const dispatch = useDispatch()
     const[caption , setCaption] = useState("")
+
+    const nepost =()=>{
+        dispatch(createnewpost(caption))
+        setCaption("")
+        
+
+    }
   return (
     <PostCreater>
         <div className='subcontainer'>
@@ -19,7 +26,7 @@ function NewPost() {
                     <textarea type="text" className='input' placeholder='Share Your Thoghts Here' value={caption}  onChange={(e)=>setCaption(e.target.value)}/>
                 </div>
                 <div className='btns'>
-                    <button className='btn' onClick={()=>{return dispatch(createnewpost(caption)),setCaption("")}} disabled={caption===""?true:false}>Post</button>
+                    <button className='btn' onClick={()=>nepost()} disabled={caption===""?true:false}>Post</button>
                 </div>
             </div>
             
