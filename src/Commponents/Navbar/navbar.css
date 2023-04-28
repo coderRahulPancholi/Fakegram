@@ -1,0 +1,55 @@
+.df{
+    display: flex;
+}
+.ac{
+    align-items: center;
+}
+.jc{
+    justify-content: center;
+}
+.header{
+    height: 70px;
+    width: 100vw;
+    background-color: white;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.cont{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.sub{
+    display: flex ;
+    align-items: center;
+
+}
+.appname {
+    color: #fd3e82;
+    
+   
+}
+
+.profile{
+    background-color: aliceblue;
+    gap: 10px;
+    border-radius: 10px;
+    height: 90%;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+.profile:hover{
+    background-color: rgb(128, 180, 226);
+
+}
