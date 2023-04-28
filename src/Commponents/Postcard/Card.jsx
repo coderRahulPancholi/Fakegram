@@ -11,6 +11,13 @@ const Card = ({ image, likes, comments, caption, username, userImage,postid,like
   const [likecount,setlikecount] = useState(likes)
 
  const dispatch = useDispatch()
+
+ const likfun = ()=>{
+  setlike(!like)
+  setlikecount(like? prev=>prev -1:prev=> prev +1)
+   dispatch(likepost(id))
+
+ }
   return (
     <div className="instagram-card" key={id}>
       {/* {image?<img src={image} className="post-image" alt='post ' />:null} */}
@@ -23,7 +30,7 @@ const Card = ({ image, likes, comments, caption, username, userImage,postid,like
        
         </div>
         <div className="post-stats">
-          <span className= "likes" onClick={()=>{ return setlike(!like),setlikecount(like?prev=>prev -1:prev=> prev +1), dispatch(likepost(id))}}>{likecount} {like?<AiFillLike size={25}/>:<AiOutlineLike size={25}/>}</span>
+          <span className= "likes" onClick={()=>likfun()}>{likecount} {like?<AiFillLike size={25}/>:<AiOutlineLike size={25}/>}</span>
           <span className="comments">{comments} Comments</span>
           
         </div>

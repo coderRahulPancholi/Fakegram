@@ -19,6 +19,12 @@ dispatch(searchuser(userid))
 // eslint-disable-next-line
     },[])
 
+    const follow = ()=>{
+        dispatch(followuser(e._id))
+        setIsfollowed(!isfollowed)
+
+    }
+
   return (
     <UserPageWrapper>
         {e? 
@@ -61,7 +67,7 @@ dispatch(searchuser(userid))
                 </div>
                 <div className="subp3">
                    <div>
-                    <button onClick={()=>{ return  dispatch(followuser(e._id)),setIsfollowed(!isfollowed)}}>{isfollowed?" UnFollow": "Follow"}</button>
+                    <button onClick={()=>follow()}>{isfollowed?" UnFollow": "Follow"}</button>
                    </div>
                 </div>
 
