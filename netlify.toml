@@ -1,0 +1,32 @@
+[build]
+command = "npm run build"
+publish="."
+base="/"
+
+[[redirects]]
+from = "/"
+to = "/about"
+status = 200
+
+[[redirects]]
+from = "/"
+to = "/allusers"
+status = 200
+[[redirects]]
+from = "/"
+to = "/about"
+status = 200
+[[redirects]]
+from = "/"
+to = "/newpost"
+status = 200
+[[redirects]]
+from = "/"
+to = "/user/:userid"
+status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"

@@ -1,5 +1,5 @@
-/
-/about
-/allusers
-/newpost
-/user/:userid
+/home                /
+/user/:userid        /
+/                 /about
+/                /allusers
+/               /newpost
