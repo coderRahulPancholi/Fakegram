@@ -3,9 +3,9 @@ import { navi } from "./post";
 
 
 
-// const URL = "https://fakegramapi.onrender.com"
+const URL = "https://fakegramapi.onrender.com"
 // const URL = "http://localhost:8000"
-const URL = "https://fakegram-beckend.vercel.app"
+// const URL = "https://fakegram-beckend.vercel.app"
 
 
 export const loginuser =(email,password)=> async(dispatch)=>{

@@ -1,9 +1,9 @@
 import axios from "axios";
 import {   loaduser, rootuserposts } from "./user";
 
-// const URL = "https://fakegramapi.onrender.com";
+const URL = "https://fakegramapi.onrender.com";
 // const URL = "http://localhost:8000";
-const URL = "https://fakegram-beckend.vercel.app";
+// const URL = "https://fakegram-beckend.vercel.app";
 
 
 export const navi = (navigate,userid)=>{
