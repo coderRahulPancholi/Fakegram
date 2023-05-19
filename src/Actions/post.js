@@ -43,38 +43,7 @@ export const createnewpost = (caption, file,navigate) => async (dispatch) => {
     })
   }
 };
-// export const createimgpost = (file) => async (dispatch) => {
-//   try {
-//     dispatch({
-//       type: "postcreatereq",
-//     });
-//     const formdata = new FormData()
-//     formdata.append("file",file)
 
-//     const create = await axios.post(`${URL}/user/createimgpost`,formdata, {
-     
-//       withCredentials:true,
-
-//       headers: {
-//         // "Content-Type": "application/json",
-//       },
-    
-//     });
-
-//     dispatch({
-//       type: "postcreatesucess",
-      
-//     });
-//     // dispatch(loadfollowingposts());
-//     const created = await create.data
-//     console.log(created);
-//   } catch (error) {
-//     console.log(error);
-//     dispatch({
-//       type:"postcreatefail"
-//     })
-//   }
-// };
 export const likepost = (postid) => async (dispatch) => {
   try {
     // dispatch({

@@ -196,10 +196,10 @@ export const loadfollowingposts =()=> async(dispatch)=>{
         })
 
        const userdata = await axios.get(`${URL}/user/following/posts`,{
+           withCredentials:true,
         headers:{
             "Content-Type":"application/json"
         },
-        withCredentials:true
         
        })
        console.log(userdata.data.letestposts )

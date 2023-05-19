@@ -24,6 +24,10 @@ status = 200
 from = "/"
 to = "/user/:userid"
 status = 200
+[[redirects]]
+from = "/about"
+to = "/about"
+status = 200
 
 [[headers]]
   for = "/*"
