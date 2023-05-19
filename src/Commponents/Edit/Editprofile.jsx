@@ -4,7 +4,7 @@ import {GrClose} from 'react-icons/gr'
 import { useDispatch, useSelector } from 'react-redux'
 import { loaduser, updateUserPhoto, updateprofile } from '../../Actions/user'
 import TextareaAutosize from 'react-textarea-autosize';
-import Loading from '../Loader/Loading'
+// import Loading from '../Loader/Loading'
 
 function Editprofile({setedit}) {
 

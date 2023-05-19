@@ -9,13 +9,13 @@ import UserCard from '../UserCard/UserCard';
 
 
 export default function ScrollDialog({open,setOpen,likesby}) {
-  
+      //eslint-disable-next-line
   const [scroll, setScroll] = React.useState('paper');
 
-  const handleClickOpen = (scrollType) => () => {
-    setOpen(true);
-    setScroll(scrollType);
-  };
+  // const handleClickOpen = (scrollType) => () => {
+  //   setOpen(true);
+  //   setScroll(scrollType);
+  // };
 
   const handleClose = () => {
     setOpen(false);
@@ -29,6 +29,7 @@ export default function ScrollDialog({open,setOpen,likesby}) {
         descriptionElement.focus();
       }
     }
+
   }, [open]);
 
   return (
