@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createnewpost } from "../../Actions/post";
 // import Loading from '../../Commponents/Loader/Loading'
 import TextareaAutosize from "react-textarea-autosize";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import{BiImageAdd } from 'react-icons/bi'
 import { useNavigate } from "react-router-dom";
 import { Box, LinearProgress } from "@mui/material";
 
@@ -51,7 +51,7 @@ function NewPost() {
           </div>
           <div>
             <label htmlFor="postimg" className=" df ac w50 jc globalbtn cp">
-              <AddPhotoAlternateIcon />
+              <BiImageAdd/>
               {file ? "Change Image" : "Add Image"}
               {/* {file && <button onClick={removephoto} className="globalbtn">Remove</button>} */}
             </label>
