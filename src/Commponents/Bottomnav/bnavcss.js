@@ -5,7 +5,7 @@ width: 100vw;
 
 
 z-index: 9;
-position: sticky;
+position: fixed;
 bottom: 0;
 display: flex;
 justify-content: center;

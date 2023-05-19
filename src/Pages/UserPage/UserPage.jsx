@@ -10,6 +10,7 @@ import { TextareaAutosize } from "@mui/material";
 import Card from "../../Commponents/Postcard/Card";
 import Loading from "../../Commponents/Loader/Loading";
 import { BiArrowBack } from "react-icons/bi";
+import { Global_Url } from "../../url";
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function UserPage() {
       type:"loadingtrue"
      })
     const userdata = await axios.get(
-      `https://fakegramapi.onrender.com/user/spacificuser/${userid}`,
+      `${Global_Url}/user/spacificuser/${userid}`,
       {
         headers: {
           "Content-Type": "application/json",

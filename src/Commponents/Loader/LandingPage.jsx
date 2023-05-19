@@ -20,6 +20,10 @@ function LandingPage() {
 export default LandingPage
 
 const Landing = styled.div`
+position: fixed;
+top: 0;
+background-color: whitesmoke;
+z-index: 999;
 width: 100vw;
 height: 100vh;
 display: flex;

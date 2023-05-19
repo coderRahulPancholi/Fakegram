@@ -86,7 +86,7 @@ const [edit,setEdit]= useState(false)
 {userposts?userposts.map((e)=>{
   return(
 
-<Card caption={e.caption} likes={e.likes.length} isliked={e.likes.some((e)=>e._id === user._id)} id={e._id} isdelete = {true} isaccount = {true} key={e._id}   likearray={e.likes} userImage={e.ownerid.profileUrl} image={e.imageUrl} comments={e.comments.length}/> 
+<Card caption={e.caption} likes={e.likes.length} isliked={e.likes.some((e)=>e._id === user._id)} id={e._id} isdelete = {true} isaccount = {true} key={e._id}   likearray={e.likes} userImage={e.ownerid.profileUrl} image={e.imageUrl} comments={e.comments.length} username={e.ownerid.username} user_id={e.ownerid._id}/> 
   )
 
 }):null}

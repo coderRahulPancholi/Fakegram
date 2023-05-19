@@ -1,9 +1,10 @@
 import axios from "axios";
 import {   loaduser, rootuserposts } from "./user";
+import { Global_Url } from "../url";
 
 
-const URL = "https://fakegramapi.onrender.com";
-// const URL = "http://localhost:8000"
+// const URL = "https://fakegramapi.onrender.com";
+const URL = Global_Url
 // const URL = "https://fakegram-beckend.vercel.app";
 
 

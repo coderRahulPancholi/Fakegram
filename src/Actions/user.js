@@ -1,10 +1,12 @@
 import axios from "axios"
+import { Global_Url } from "../url";
 
 
 
 
-const URL = "https://fakegramapi.onrender.com"
-// const URL = "http://localhost:8000"
+
+// const URL = "https://fakegramapi.onrender.com"
+const URL = Global_Url
 // const URL = "https://fakegram-beckend.vercel.app"
 
 
@@ -16,12 +18,12 @@ export const loginuser =(email,password)=> async(dispatch)=>{
         })
 
        const userdata = await axios.post(`${URL}/login`,{email,password},{
+           withCredentials:true,
         headers:{
             "Content-Type":"application/json",
-           " Access-Control-Allow-Origin" :"true"
+          
         
-        },
-        withCredentials:true
+        }
         
        })
        

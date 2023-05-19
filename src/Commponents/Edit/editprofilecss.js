@@ -13,6 +13,7 @@ justify-content: center;
 }
 .sub{
     min-height: calc(100vh - 140px);
+    padding-bottom: 80px;
     width: 100%;
     max-width: 600px;
     background-color: white;

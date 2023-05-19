@@ -6,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../Loader/Loading'
+import { Global_Url } from '../../url'
 
 
 
@@ -21,7 +22,7 @@ function Followers() {
      type:"loadingtrue"
     })
      const getfoll = await axios.get(
-       `https://fakegramapi.onrender.com/user/followers/${followersof}`,
+       `${Global_Url}/user/followers/${followersof}`,
        {
          headers: {
            "Content-Type": "application/json",

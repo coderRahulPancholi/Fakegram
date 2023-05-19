@@ -51,7 +51,7 @@ function NewPost() {
           </div>
           <div>
             <label htmlFor="postimg" className=" df ac w50 jc globalbtn cp">
-              <BiImageAdd/>
+              <BiImageAdd size={20}/>
               {file ? "Change Image" : "Add Image"}
               {/* {file && <button onClick={removephoto} className="globalbtn">Remove</button>} */}
             </label>

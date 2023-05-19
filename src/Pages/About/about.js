@@ -7,7 +7,8 @@ flex-direction: column;
 align-items: center;
 
 gap: 10px;
-min-height: calc(100vh - 140px);
+/* min-height: calc(100vh - 140px); */
+margin-bottom: 80px;
 
 .instagram-profile-card {
   background-color: #ffffff;

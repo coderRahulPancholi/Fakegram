@@ -8,6 +8,8 @@ import {AiOutlineSend} from 'react-icons/ai';
 import { commentonpost } from '../../Actions/post'
 import Loading from '../Loader/Loading'
 import { BiArrowBack } from 'react-icons/bi'
+import { Global_Url} from '../../url'
+
 
 
 function ViewPost() {
@@ -22,7 +24,7 @@ const getpost = async () => {
     type:"loadingtrue"
    })
     const post = await axios.get(
-      `https://fakegramapi.onrender.com/user/onepost/${postid}`,
+      `${Global_Url}/user/onepost/${postid}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -67,16 +69,16 @@ getpost()
       <div className="postcomments dfc">
         <div className='commentinput df ac'>
           <input type="text" placeholder='Comment Here' value={comment} onChange={(e)=>setComment(e.target.value)}/>
-        <AiOutlineSend onClick={sendcomment} className="cp"/>
+        <AiOutlineSend onClick={sendcomment} className="cp" size={22}/>
           
          
         </div>
         <div className='dfc commentsarray' style={{gap:"15px",padding:"10px"}}>
 
        
-        {thipost.comments.length>0?thipost.comments.map((e)=>{
+        {thipost.comments.length>0?thipost.comments.map((e,i)=>{
             return(
-                <div className='comment df ac'>
+                <div className='comment df ac' key={i}>
                <div><img src={e.userid.profileUrl?e.userid.profileUrl:"https://images.squarespace-cdn.com/content/v1/5d91b73a83856c46984c2857/1643318392157-X8TE36EZ6VAH7036AZ1W/Creative+captions+for+Facebook+profile+pictures.jpg?format=1500w"} alt="" style={{width:"30px",height:"30px",borderRadius:"100%"}}/></div>
                <div >
 <h5 onClick={()=>navigate(`/user/${e.userid._id}`)}>{e.username}</h5>
@@ -105,7 +107,8 @@ export default ViewPost
 
 const Fwrapper = styled.div`
 width: 100vw;
-min-height: calc(100vh - 140px);
+/* min-height: calc(100vh - 140px); */
+margin-bottom: 80px;
 display: flex;
 justify-content: center;
 .scont{

@@ -28,25 +28,34 @@ const Card = ({ image, likes, comments, caption, username, userImage,postid,like
 
  
   return (
-    <div className="instagram-card" key={id}>
-      {image&&<img src={image} className="post-image" alt='post ' />}
-      <TextareaAutosize className='caption' value={caption} style={{padding:"5px 10px"}}/>
-      
-      <div className="card-info">
-        <div className="user-info">
+    <div className="instagram-card " key={id}>
+       <div className="user-inf df ac">
           <img src={userImage?userImage:"https://images.squarespace-cdn.com/content/v1/5d91b73a83856c46984c2857/1643318392157-X8TE36EZ6VAH7036AZ1W/Creative+captions+for+Facebook+profile+pictures.jpg?format=1500w"} alt="User Profile" className="user-image" />
-          <h3 className="username cp" onClick={()=>navigate(`/user/${user_id}`)}>{username}</h3><br />
+          <h4 className=" cp" onClick={()=>navigate(`/user/${user_id}`)}>{username}</h4>
        
         </div>
+        
+        <div className='dfc'>
+
+      {image&&<img src={image} className="post-image" alt='post ' />}
+<div className='df ' style={{padding:"0px 10px"}}>
+  
+     <b>{username}</b> <TextareaAutosize name='postinfo' className='caption' value={caption} style={{padding:"5px 10px"}}/>
+</div>
+        </div>
+      
+      <div className="card-info">
+       
         <div className="post-stats">
           <span className= "likes" > <b onClick={()=>setOpen(!open)}>Likes</b> {likecount} <span onClick={()=>likfun()} className='likes '> {like?<AiFillLike size={25} style={{color:"#fa5794"}}/>:<AiOutlineLike size={25}/>}</span></span>
           <span className="comments" onClick={()=>navigate(`/post/${id}`)}>{comments} Comments</span>
 
-          {isdelete?
-          <button className="comments" onClick={()=>dispatch(deletepost(id))}>Delete</button>:null}
+          {isdelete &&
+          <button className="comments" onClick={()=>dispatch(deletepost(id))}>Delete</button>}
           
         </div>
-        <p>{new Date(date).getDate() === new Date(Date.now()).getDate()?"Today":new Date(date).getDate() === new Date(Date.now()).getDate() - 1 ?"Yesterday":date}</p>
+
+        <p style={{padding:"5px 10px"}}>{new Date(date).getDate() === new Date(Date.now()).getDate()?"Today":new Date(date).getDate() === new Date(Date.now()).getDate() - 1 ?"Yesterday":date}</p>
         
         
       </div>
