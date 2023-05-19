@@ -4,7 +4,7 @@ import Card from './Card'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import {AiOutlineSend} from 'react-icons/ai';
 import { commentonpost } from '../../Actions/post'
 import Loading from '../Loader/Loading'
 import { BiArrowBack } from 'react-icons/bi'
@@ -67,7 +67,7 @@ getpost()
       <div className="postcomments dfc">
         <div className='commentinput df ac'>
           <input type="text" placeholder='Comment Here' value={comment} onChange={(e)=>setComment(e.target.value)}/>
-        <SendRoundedIcon onClick={sendcomment} className="cp"/>
+        <AiOutlineSend onClick={sendcomment} className="cp"/>
           
          
         </div>
