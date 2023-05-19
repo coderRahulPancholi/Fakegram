@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Usercard = styled.div`
 width: 100%;
-min-width: 500px;
+max-width: 500px;
 
 .instagram-profile-card {
   background-color: #ffffff;
