@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  loadfollowingposts } from "../../Actions/user";
 import Card from "../../Commponents/Postcard/Card";
 import HomeWrapper from "./homecss";
+import { Box, CircularProgress } from "@mui/material";
 
 function Home() {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ function Home() {
     dispatch(loadfollowingposts());
     // eslint-disable-next-line
   }, []);
-  const {user} = useSelector(state=>state.mainreducer)
+  const {user,loading} = useSelector(state=>state.mainreducer)
   const { followingposts } = useSelector((state) => state.mainreducer);
 
   return (
@@ -28,7 +29,7 @@ function Home() {
             return (
               
                 <div key={e._id}>
-                  <Card caption={e.caption} username={e.ownerusername} likes={e.likes.length} comments={e.comments.length}  id={e._id} date={new Date(e.postedon).toDateString()} isliked={e.likes.some((e)=>e === user._id)}  />
+                  <Card caption={e.caption} username={e.ownerusername} likes={e.likes.length} comments={e.comments.length}  id={e._id} date={new Date(e.postedon).toDateString()} isliked={e.likes.some((e)=>e._id === user._id)} likearray={e.likes} userImage={e.ownerid.profileUrl} image={e.imageUrl} user_id={e.ownerid._id}/>
                 </div>
              
             );
@@ -45,13 +46,16 @@ function Home() {
             return (
               
                 <div key={e._id}>
-                  <Card caption={e.caption} username={e.ownerusername} likes={e.likes.length} comments={e.comments.length} likearray={e.likes} id={e._id} date={new Date(e.postedon).toDateString()}  isliked={e.likes.some((e)=>e === user._id)}/>
+                  <Card caption={e.caption} username={e.ownerusername} likes={e.likes.length} comments={e.comments.length} likearray={e.likes} id={e._id} date={new Date(e.postedon).toDateString()}  isliked={e.likes.some((e)=>e._id === user._id)} userImage={e.ownerid.profileUrl} image={e.imageUrl} user_id={e.ownerid._id}/>
                 </div>
              
             );
           })
         ) :<>No Posts</>:null}
       </div>
+    {loading&&    <Box sx={{ display: 'flex' }}>
+        <CircularProgress style={{color:"#fb3c83"}}/>
+      </Box> }
     </HomeWrapper>
   );
 }

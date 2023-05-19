@@ -13,7 +13,7 @@ function Allusers() {
 
 // // eslint-disable-next-line
 //     },[])
-    const {allusers,loading} = useSelector(s=>s.mainreducer)
+    const {allusers} = useSelector(s=>s.mainreducer)
 
 
     const [username,setUsername] = useState("")
@@ -37,20 +37,20 @@ function Allusers() {
 
   return (
     <ALLuserWrapper className='dfc  '>
-        <div>
-            <input type="text" value={username} onChange={(e)=> {setUsername(e.target.value,search())} } placeholder='Search' />
+        <div className='searchinput'  >
+            <input type="text" value={username} onChange={(e)=> {setUsername(e.target.value,search())} } placeholder='Search by username' />
         </div>
         <div className='subcontainer dfc'>
             {allusers?allusers.map((e)=>{
                 return(
                     
-                    <UserCard name={e.name.toUpperCase()} followers={e.followers.length} following={e.following.length} posts={e.posts.length} username={e.name} id={e._id} key={e._id}  />
+                    <UserCard name={e.name.toUpperCase()} followers={e.followers.length} following={e.following.length} posts={e.posts.length} username={e.username} id={e._id} key={e._id} profileImage={e.profileUrl} />
                     
                     
 
                 )
-            }):<>Search</>}
-{loading?<div>Loading</div>:null}
+            }):null}
+
         </div>
        
         

@@ -25,6 +25,20 @@ display: flex;
   
 }
 
+.searchinput{
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+
+
+    input{
+        width: 100%;
+        padding: 7px;
+        outline: none;
+    }
+  
+}
+
 
 
 

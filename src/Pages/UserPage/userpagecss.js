@@ -4,6 +4,7 @@ const UserPageWrapper = styled.div`
   width: 100vw;
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 140px);
 
 .dfc{
     display: flex;
@@ -15,24 +16,30 @@ const UserPageWrapper = styled.div`
 .df{
     display: flex;
 }
+.cp{
+    cursor: pointer;
+}
 
   .subcontainer{
     width: 100%;
     max-width: 600px;
-min-height: calc(100vh - 140px);
+gap: 15px;
 padding: 5px;
-background-color: white;
+
 
   }
 
+
 .profileinfo{
     /* background-color: wheat; */
+    background-color: white;
     width: 100%;
-height: 30%;
+/* height: 30%; */
     min-height: 200px;
     border-radius: 10px;
-    /* padding: 20px; */
-    gap: 10px;
+    padding: 20px;
+    /* gap: 10px; */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .subp1{
@@ -40,7 +47,7 @@ height: 30%;
 }
 
 .pf{
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     width: 100%;
     align-items: center;
@@ -76,7 +83,19 @@ border-radius: 100%;
 }
 
 .subp2{
+    /* min-height: 100px; */
     
+    padding: 7px;
+
+    textarea{
+  width: 100%;
+ /* min-height: 50px; */
+  pointer-events: none;
+  outline: none;
+  background-color: transparent;
+  resize: none;
+  border: none;
+}
     
 }
 .subp3{
@@ -101,6 +120,12 @@ justify-content: center;
     }
 }
 
+}
+
+.postsinfo{
+ 
+    width: 98%;
+    gap: 15px;
 }
 `;
 

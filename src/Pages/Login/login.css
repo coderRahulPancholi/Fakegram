@@ -1,5 +1,6 @@
 .wrapper{ 
-    width: 100vw;
+    /* width: 100vw; */
+    
 height: 100vh;
 display: flex;
 
@@ -15,15 +16,15 @@ background-color: aliceblue;
   align-items: center;
   max-width: 400px;
 
-  /* width: 90%; */
+  width: 90%;
   overflow: hidden
 }
 .brand img{
   width: 100px;
 }
 
-.container {
-  width: 90%;
+.containerl {
+  width: 100%;
   padding: 30px;
   max-width: 600px;
   background-color: white;

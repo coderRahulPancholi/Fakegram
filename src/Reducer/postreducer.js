@@ -17,5 +17,17 @@ export const postreducer = createReducer(initialState,{
               
     },
 
+    commentrequest:(state,action)=>{
+        state.loading=true        
+    },
+  commentsuccess:(state,action)=>{
+        state.loading=false  ;
+    },
+    commentfail:(state,action)=>{
+        state.loading=false  
+              
+    },
+
+
 
 })

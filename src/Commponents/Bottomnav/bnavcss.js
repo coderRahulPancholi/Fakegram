@@ -42,12 +42,7 @@ border-radius: 100%;
 justify-content: center;
 transition: 0.5s;
 
-&:hover{
-    background-color:#fa5794;
-    /* transform: translateY(-2px); */
-    color: white;
-    transition: 0.5s;
-}
+
 .icontitle{
     display: none;
 
@@ -77,7 +72,11 @@ justify-content: center;
 }
 
 }
-
+.smallimg{
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
 
 `
 

@@ -27,7 +27,7 @@ justify-content: center;
  display: flex;
  flex-direction: column;
  align-items: center;
- gap: 10px;
+ /* gap: 10px; */
 
  div{
     padding: 10px;
@@ -42,7 +42,7 @@ justify-content: center;
 .input{
     width: 100%;
     
-    min-height: 400px;
+    min-height: 100px;
     padding: 10px;
     outline: none;
     border: none;
@@ -70,7 +70,21 @@ justify-content: center;
 
     }
 }
-
+.post-image {
+    width:40%;
+    /* max-width: 300px; */
+    height: auto;
+    border-radius: 10px;
+  }
+  .costomfileinput {
+  display: none;
+}
+.costomfileinputLabal{
+    background-color: aliceblue;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 7px;
+}
 `
 
 export default PostCreater

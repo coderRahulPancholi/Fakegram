@@ -6,6 +6,13 @@ const initialState = {
 }
 export const costomreducer = createReducer(initialState,{
 
+    loadingtrue:(state)=>{
+        state.loading=true        
+    },
+    loadingfalse:(state)=>{
+        state.loading=false  ;
+    },
+  
     loginrequest:(state,action)=>{
         state.loading=true        
     },
@@ -98,6 +105,28 @@ export const costomreducer = createReducer(initialState,{
     },
     registerfail:(state,action)=>{
         state.loading=false        
+    },
+
+    postcreatereq:(state,action)=>{
+        state.loading=true
+    },
+    postcreatesucess:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload
+    },
+    postcreatefail:(state,action)=>{
+        state.loading=false
+    },
+    loadingreq:(state,action)=>{
+        state.loading=true
+    },
+    loadingsucess:(state,action)=>{
+        state.loading=false;
+  
+    },
+    loadingfail:(state,action)=>{
+        state.loading=false
     }
 
 })
+

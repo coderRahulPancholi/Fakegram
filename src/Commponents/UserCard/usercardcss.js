@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Usercard = styled.div`
 width: 100%;
+min-width: 500px;
 
 .instagram-profile-card {
   background-color: #ffffff;
@@ -46,12 +47,12 @@ width: 100%;
 }
 
 .name {
-  font-size: 24px;
+  font-size: 15px;
   margin: 0;
 }
 
 .username {
-  font-size: 18px;
+  font-size: 12px;
   margin: 0;
   color: #a0a0a0;
 }

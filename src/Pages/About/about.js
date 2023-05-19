@@ -22,27 +22,29 @@ min-height: calc(100vh - 140px);
 
 .profile-info {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+  
   align-items: center;
 }
 
 .profile-image {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .user-info {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   /* justify-content: center; */
   align-items: center;
 }
 
 .name {
-  font-size: 24px;
+  font-size: 12px;
   margin: 0;
+  
 }
 
 .username {
@@ -53,8 +55,10 @@ min-height: calc(100vh - 140px);
 
 .stats {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  /* justify-content: space-between; */
+gap: 20px;
+
+  /* margin-top: 20px; */
 }
 
 .stat {
@@ -65,14 +69,39 @@ min-height: calc(100vh - 140px);
 }
 
 .number {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
 }
 
 .label {
-  font-size: 18px;
+  font-size: 15px;
   color: #a0a0a0;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+}
+.bios{
+  min-height: 100px;
+  width: 100%;
+/* background-color: #a0a0a0; */
+padding: 5px;
+position: relative;
+
+
+textarea{
+  width: 100%;
+ min-height: 50px;
+  pointer-events: none;
+  outline: none;
+  background-color: transparent;
+  resize: none;
+  border: none;
+}
+
+
+.editbtn{
+  position: absolute;
+  top: 0;
+  right: 5px;
+}
 }
 
 .postarray{
@@ -80,7 +109,7 @@ min-height: calc(100vh - 140px);
     max-width: 600px;
     display: flex;
     gap: 15px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     padding: 10px;
     flex-wrap: wrap;
 }

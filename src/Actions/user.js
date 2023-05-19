@@ -1,5 +1,5 @@
 import axios from "axios"
-import { navi } from "./post";
+
 
 
 
@@ -83,11 +83,12 @@ export const register =(name,username,email,password)=> async(dispatch)=>{
 export const logout =()=> async(dispatch)=>{
 
     try {
-        // dispatch({
-        //     type:"registerrequest"
-        // })
+        dispatch({
+            type:"loadingreq"
+        })
 
-       if(window.confirm("Are You Sure To Logout")){const userdata = await axios.get(`${URL}/logout`,{
+       if(window.confirm("Are You Sure To Logout")){
+        await axios.get(`${URL}/logout`,{
         headers:{
             "Content-Type":"application/json",
            " Access-Control-Allow-Origin" :"true"
@@ -97,18 +98,22 @@ export const logout =()=> async(dispatch)=>{
         
        })
        
-       console.log(userdata.data.user)
 
-    //    dispatch({
-    //     type:"registersucess",
-    //     payload:userdata.data.user
-    //    })
+     await  dispatch({
+        type:"loadingsucess",
+
+       })
  window.location.pathname ="/"
 
+    }else{
+       dispatch({
+            type:"loadingfail",
+    
+           })
     }
     } catch (error) {
         dispatch({
-            type:"registerfail"
+            type:"loadingfail"
         })
 
         
@@ -248,40 +253,40 @@ export const rootuserposts =()=> async(dispatch)=>{
     
 
 };
-export const searchuser =(navigate,userid)=> async(dispatch)=>{
+// export const searchuser =(userid)=> async(dispatch)=>{
 
 
-    try {
-        dispatch({
-            type:"searchuserrequest"
-        })
+//     try {
+//         dispatch({
+//             type:"searchuserrequest"
+//         })
 
-       const userdata = await axios.get(`${URL}/user/spacificuser/${userid}`,{
-        headers:{
-            "Content-Type":"application/json"
-        },
-        withCredentials:true
+//        const userdata = await axios.get(`${URL}/user/spacificuser/${userid}`,{
+//         headers:{
+//             "Content-Type":"application/json"
+//         },
+//         withCredentials:true
         
-       })
-       console.log(userdata.data.user )
+//        })
+//        console.log(userdata.data.user )
 
 
-       dispatch({
-        type:"searchusersucess",
-        payload:userdata.data.user
-       })
-      dispatch(navi(navigate,userid))
+//        dispatch({
+//         type:"searchusersucess",
+//         payload:userdata.data.user
+//        })
+      
         
-    } catch (error) {
-        dispatch({
-            type:"searchuserfail"
-        })
+//     } catch (error) {
+//         dispatch({
+//             type:"searchuserfail"
+//         })
 
         
-    }
+//     }
     
 
-};
+// };
 export const followuser =(userid)=> async(dispatch)=>{
 
     try {
@@ -301,7 +306,7 @@ export const followuser =(userid)=> async(dispatch)=>{
 
        console.log(await userdata.json())
 
-       dispatch(searchuser(userid))
+    //    dispatch(searchuser(userid))
 
     //    dispatch({
     //     type:"searchusersucess",
@@ -318,4 +323,67 @@ export const followuser =(userid)=> async(dispatch)=>{
     
 
 };
+
+
+export const updateprofile = (username,bio,num,dob,city,state)=>async(dispatch)=>{
+    try {
+        dispatch({
+            type:"loadingtrue"
+        })
+  
+        await axios.put(`${URL}/user/profile/update`,{name:username,bio,num,dob,city,state},{
+            withCredentials:true,
+            headers:{
+                "Content-Type":"application/json"
+            },
+          
+          
+        })
+
+        dispatch({
+            type:"searchuserfail"
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"laodingfalse"
+        })
+        console.log('server error')
+    }
+
+
+}
+
+
+export const updateUserPhoto = (file)=>async(dispatch)=>{
+    try {
+        dispatch({
+            type:"loadingtrue"
+        })
+        let formdata = new FormData()
+        formdata.append("file",file,)
+console.log(formdata)
+         await axios.post(`${URL}/user/upload/userprofile`,formdata,{
+            withCredentials:true,
+            
+            headers:{
+                // "Content-Type":"application/json"
+            },
+          
+          
+        })
+
+        dispatch({
+            type:"searchuserfail"
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"laodingfalse"
+        })
+        console.log('server error')
+    }
+
+
+}
 

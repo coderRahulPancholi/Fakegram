@@ -1,43 +1,80 @@
 import axios from "axios";
 import {   loaduser, rootuserposts } from "./user";
 
+
 const URL = "https://fakegramapi.onrender.com";
-// const URL = "http://localhost:8000";
+// const URL = "http://localhost:8000"
 // const URL = "https://fakegram-beckend.vercel.app";
 
 
-export const navi = (navigate,userid)=>{
-  navigate(`/user/${userid}`)
 
-}
 
-export const createnewpost = (caption) => async (dispatch) => {
+export const createnewpost = (caption, file,navigate) => async (dispatch) => {
   try {
-    // dispatch({
-    //   type: "likerequest",
-    // });
-    const create = await fetch(`${URL}/user/createpost`, {
-      method: "POST",
-      credentials: "include",
-
+    dispatch({
+      type: "postcreatereq",
+    });
+    const formdata = new FormData()
+    formdata.append("file" ,file )
+    formdata.append("caption",caption)
+    const create = await axios.post(`${URL}/user/createpost`,formdata , {
+      withCredentials:true,
       headers: {
-        "Content-Type": "application/json",
+      "Content-Type":'multipart/form-data'
       },
-      body: JSON.stringify({
-        caption
-      }),
+ 
+   
+
+      
     });
 
-    // dispatch({
-    //   type: "likesuccess",
-    // });
+    dispatch({
+      type: "postcreatesucess",
+      
+    });
     // dispatch(loadfollowingposts());
-    const created = await create.json()
+    const created = await create.data.post._id
     console.log(created);
+    navigate(`/post/${created}`)
   } catch (error) {
     console.log(error);
+    dispatch({
+      type:"postcreatefail"
+    })
   }
 };
+// export const createimgpost = (file) => async (dispatch) => {
+//   try {
+//     dispatch({
+//       type: "postcreatereq",
+//     });
+//     const formdata = new FormData()
+//     formdata.append("file",file)
+
+//     const create = await axios.post(`${URL}/user/createimgpost`,formdata, {
+     
+//       withCredentials:true,
+
+//       headers: {
+//         // "Content-Type": "application/json",
+//       },
+    
+//     });
+
+//     dispatch({
+//       type: "postcreatesucess",
+      
+//     });
+//     // dispatch(loadfollowingposts());
+//     const created = await create.data
+//     console.log(created);
+//   } catch (error) {
+//     console.log(error);
+//     dispatch({
+//       type:"postcreatefail"
+//     })
+//   }
+// };
 export const likepost = (postid) => async (dispatch) => {
   try {
     // dispatch({
@@ -89,5 +126,36 @@ export const deletepost = (postid) => async (dispatch) => {
     console.log(dltresult);}
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const commentonpost = (postid,comment) => async (dispatch) => {
+  try {
+        dispatch({
+        type:"commentrequest"
+      })
+      await fetch(`${URL}/user/comment/${postid}`,{
+        method: "POST",
+        credentials: "include",
+  
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          comment
+        }),
+      });
+  
+      dispatch({
+        type:"commentsuccess"
+      })
+
+  
+  } catch (error) {
+    console.log(error);
+    
+    dispatch({
+      type:"commentfail"
+    })
   }
 };
