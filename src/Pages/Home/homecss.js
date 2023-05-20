@@ -22,7 +22,7 @@ margin-bottom: 80px;
    flex-direction: column;
     gap: 20px;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
 
     div{
         width: 100%;

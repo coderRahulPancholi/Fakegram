@@ -51,7 +51,7 @@ function Home() {
              
             );
           })
-        ) :<>No Posts</>:null}
+        ) :<>Follow your Friends To Get Thier letest Posts</>:null}
       </div>
     {loading&&    <Box sx={{ display: 'flex' }}>
         <CircularProgress style={{color:"#fb3c83"}}/>

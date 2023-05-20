@@ -61,6 +61,7 @@ function NewPost() {
               id="postimg"
               onChange={changehandle}
               className="costomfileinput"
+              accept="image/png, image/jpeg,image/jpg,image/JPG"
             />
           </div>
         

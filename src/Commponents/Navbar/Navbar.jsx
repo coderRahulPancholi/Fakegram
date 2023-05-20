@@ -1,12 +1,13 @@
 import React from 'react'
 import "./navbar.css"
-import { useDispatch, useSelector } from 'react-redux'
-import { CgProfile } from 'react-icons/cg';
+import { useDispatch } from 'react-redux'
+// import { CgProfile } from 'react-icons/cg';
 import { logout } from '../../Actions/user';
 import { useNavigate } from 'react-router-dom';
+import {AiOutlineLogout} from 'react-icons/ai'
 
 function Navbar() {
-    const {user} = useSelector(state=>state.mainreducer)
+    // const {user} = useSelector(state=>state.mainreducer)
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -25,22 +26,26 @@ function Navbar() {
 
         </div>
         <div className='sub sub2'>
-            <div className='profile df ac' onClick={()=>navigate("/about")}>
-                <div className='df ac'>
+            <div className=' df ac' onClick={()=>navigate("/about")}>
+                {/* <div className='df ac'>
                 <CgProfile size={25}/>
                 </div>
                 <div className='df ac'>
                 <p>{user.name.toUpperCase()} </p>
 
-                </div>
+                </div> */}
 
             
             
 
             </div>
-            <div>
-              <button onClick={logoutuser}>Logout</button>
-            </div>
+           
+              <div onClick={logoutuser} className='dfc ac cp'>
+                <AiOutlineLogout size={24}/>
+                <span>Logout</span>
+
+              </div>
+           
          
             
            

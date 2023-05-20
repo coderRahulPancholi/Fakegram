@@ -84,9 +84,7 @@ body{
 .w50{
     width: 50%;
 }
-.w50{
-    width: 50%;
-}
+
 .container{
     max-width:120rem ;
     margin: 0 auto;
@@ -127,6 +125,13 @@ li{
 }
 .cp{
     cursor: pointer;
+}
+textarea{
+font-weight: 500;
+line-height: 0.80;
+}
+p{
+    font-size:10px;
 }
 `;
  
