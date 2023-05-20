@@ -58,7 +58,7 @@ setImgpreview(url)
     <div className='dfc ac gap10 '>
         <img src={imgpreview} alt="" style={{width:"70px",height:"70px",borderRadius:"100%"}} />
         <label htmlFor="file" className='costomfileinputLabal'>Change Photo</label>
-        <input type="file" name='file' id='file' onChange={changehandle} className='costomfileinput' />
+        <input type="file" name='file' id='file' onChange={changehandle} className='costomfileinput' accept="image/png, image/jpeg,image/jpg,image/JPG image/*;capture=camera"/>
     </div>
     <div className='bio '>
         <label htmlFor="name">Name</label>
