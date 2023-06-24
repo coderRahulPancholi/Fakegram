@@ -37,6 +37,7 @@
   .user-inf {
    padding: 10px;
     /* margin-bottom: 10px; */
+    position: relative;
    
   }
   
@@ -76,8 +77,18 @@
     padding: 0px 10px;
     font-size: 14px;
     font-weight: 600;
-    
+
   }
-  
+  .morediv{
+    /* position: relative; */
+  background-color: antiquewhite;
+  }
+  .dropmenu{
+    position: absolute;
+    /* background-color: aqua; */
+  /* padding: 0 15px 15px 15px; */
+right: 10%;
+    bottom: -100%;
+  }
   
   

@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { deletepost, likepost } from "../../Actions/post";
 
 import { BiComment } from "react-icons/bi";
-import { FiSend } from "react-icons/fi";
+import { FiSend,FiMoreVertical } from "react-icons/fi";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
 // import { rootuserposts } from '../../Actions/user';
 import TextareaAutosize from "react-textarea-autosize";
-import ScrollDialog from "../Dailogs/Likes";
+// import ScrollDialog from "../Dailogs/Likes";
 import { useNavigate } from "react-router-dom";
 
 const Card = ({
@@ -31,7 +31,8 @@ const Card = ({
 }) => {
   const [like, setlike] = useState(isliked);
   const [likecount, setlikecount] = useState(likes);
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
+  const [drop, setDrop] = useState(false);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -60,14 +61,36 @@ const Card = ({
             {username}
           </h4>
         </div>
-        {isdelete && (
-          <button
-            className="globalbtn"
-            onClick={() => dispatch(deletepost(id))}
-          >
-            Delete
-          </button>
-        )}
+        {isdelete && 
+          <div className="morediv df ac jc"> 
+            <div onClick={()=>setDrop(!drop)} className="p10 cp">
+<FiMoreVertical size={22}/>
+            </div>
+           {drop&& <div className="dropmenu dfc ac">
+            <button
+          
+          onClick={() => dispatch(deletepost(id))}
+        >
+          Delete
+        </button> 
+            <button
+          
+          onClick={() => dispatch(deletepost(id))}
+        >
+          Delete
+        </button> 
+            <button
+          
+          onClick={() => dispatch(deletepost(id))}
+        >
+          Delete
+        </button> 
+            </div>}
+          
+
+          </div>
+       
+        }
       </div>
 
       <div className="dfc">
@@ -98,7 +121,7 @@ const Card = ({
             <FiSend size={25} />
           </span>
         </div>
-<div className="likediv cp" onClick={()=>setOpen(!open)}>
+<div className="likediv cp" onClick={()=>navigate(`/postlikesby/${id}`)}>
   {likecount} likes
 </div>
         <div className="df " style={{ padding: "0px 10px" }}>
@@ -121,7 +144,8 @@ const Card = ({
             : date}
         </p>
       </div>
-      <ScrollDialog open={open} setOpen={setOpen} likesby={likearray} />
+     
+      {/* <ScrollDialog open={open} setOpen={setOpen} likesby={likearray} /> */}
     </div>
   );
 };

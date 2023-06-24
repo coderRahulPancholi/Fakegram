@@ -9,7 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { Box, LinearProgress } from "@mui/material";
 
 function NewPost() {
-  const { user, loading } = useSelector((s) => s.mainreducer);
+  const { user } = useSelector((s) => s.mainreducer);
+  const { createpostloading } = useSelector((state) => state.postreducer);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [caption, setCaption] = useState("");
@@ -78,7 +79,7 @@ function NewPost() {
           </div>
 
           <div className="btns">
-            {loading && (
+            {createpostloading && (
               <Box sx={{ width: "100%" }}>
                 <LinearProgress />
               </Box>
@@ -86,9 +87,9 @@ function NewPost() {
             <button
               className="btn"
               onClick={() => nepost()}
-              disabled={!caption || !file || loading ? true : false}
+              disabled={!file || createpostloading ? true : false}
             >
-              {loading ? "Posting.." : "Post"}
+              {createpostloading ? "Posting.." : "Post"}
             </button>
           </div>
         </div>

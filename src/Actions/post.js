@@ -12,8 +12,9 @@ const URL = Global_Url
 
 export const createnewpost = (caption, file,navigate) => async (dispatch) => {
   try {
+    navigate("/")
     dispatch({
-      type: "postcreatereq",
+      type: "creatingpost",
     });
     const formdata = new FormData()
     formdata.append("file" ,file )
@@ -30,15 +31,15 @@ export const createnewpost = (caption, file,navigate) => async (dispatch) => {
     });
 
     dispatch({
-      type: "postcreatesucess",
-      
+      type: "postcreated",
     });
     // dispatch(loadfollowingposts());
     const created = await create.data.post._id
     console.log(created);
-    navigate(`/post/${created}`)
+    // navigate(`/post/${created}`)
   } catch (error) {
     console.log(error);
+    
     dispatch({
       type:"postcreatefail"
     })

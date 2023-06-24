@@ -1,15 +1,21 @@
 import React from 'react'
 import Usercard from './usercardcss'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 
-function UserCard({ name, username, followers, following, posts, profileImage ,id}) {
-// const dispatch = useDispatch()
+function UserCard({ name, username,profileImage ,id,isfollowed,follwers}) {
+const {user} = useSelector((s)=>s.mainreducer)
 const navigate = useNavigate()
 
 const gotosearch = ()=>{
+if(user._id===id){
+  navigate("/about")
+}else{
+
   navigate(`/user/${id}`)
+} 
 }
   
   return (
@@ -24,20 +30,7 @@ const gotosearch = ()=>{
           <h4 className="username">@ {username}</h4>
         </div>
       </div>
-      {/* <div className="stats">
-        <div className="stat">
-          <span className="number">{posts}</span>
-          <span className="label">Posts</span>
-        </div>
-        <div className="stat">
-          <span className="number">{followers}</span>
-          <span className="label">Followers</span>
-        </div>
-        <div className="stat">
-          <span className="number">{following}</span>
-          <span className="label">Following</span>
-        </div>
-      </div> */}
+    
     </div>
   
 

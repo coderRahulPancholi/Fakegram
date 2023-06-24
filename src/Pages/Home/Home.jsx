@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {  loadfollowingposts } from "../../Actions/user";
 import Card from "../../Commponents/Postcard/Card";
 import HomeWrapper from "./homecss";
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, LinearProgress } from "@mui/material";
 
 function Home() {
   const dispatch = useDispatch();
@@ -12,11 +12,18 @@ function Home() {
     dispatch(loadfollowingposts());
     // eslint-disable-next-line
   }, []);
-  const {user,loading} = useSelector(state=>state.mainreducer)
-  const { followingposts } = useSelector((state) => state.mainreducer);
+  const {user,loading,followingposts} = useSelector(state=>state.mainreducer)
+  const {createpostloading} = useSelector(state=>state.postreducer)
+  // const { followingposts } = useSelector((state) => state.mainreducer);
 
   return (
     <HomeWrapper>
+        {createpostloading && (
+              <Box sx={{ width: "100%" }}>
+                <h5>Creating Post</h5>
+                <LinearProgress />
+              </Box>
+            )}
       <div className="homecontainer">
         {followingposts?followingposts.filter((e)=>new Date(e.postedon).getDate()  === new Date(Date.now()).getDate()).length!==0?<h5>Today </h5>:null:null }
      

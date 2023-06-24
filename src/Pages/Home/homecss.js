@@ -15,7 +15,7 @@ margin-bottom: 80px;
 
 .homecontainer{
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     
     /* background-color: aliceblue; */
     display: flex;

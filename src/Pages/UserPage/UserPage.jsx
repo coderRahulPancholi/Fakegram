@@ -110,6 +110,7 @@ function UserPage() {
             </div>
             <div className="subp2">
               <div>
+                <b>Bio</b>
               <TextareaAutosize      value={searchuser.bio}/>
               
               </div>
@@ -127,7 +128,7 @@ function UserPage() {
            
               {searchuser && searchuser.posts.reverse().map((e)=>{
                 return(
-                  <Card caption={e.caption} likes={e.likes.length} isliked={e.likes.some((e)=>e === user._id)} id={e._id} key={e._id}   likearray={e.likes} userImage={searchuser.profileUrl} image={e.imageUrl}/>
+                  <Card caption={e.caption} likes={e.likes.length} isliked={e.likes.some((e)=>e === user._id)} id={e._id} key={e._id}   likearray={e.likes} userImage={searchuser.profileUrl} image={e.imageUrl} username={searchuser.username}/>
                 )
               })}
                 

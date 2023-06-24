@@ -14,15 +14,15 @@ export const costomreducer = createReducer(initialState,{
     },
   
     loginrequest:(state,action)=>{
-        state.loading=true        
+        state.loginloading=true        
     },
     loginsuccess:(state,action)=>{
-        state.loading=false  ;
+        state.loginloading=false  ;
         state.user = action.payload ;  
         state.isauthed=true;   
     },
     loginfail:(state,action)=>{
-        state.loading=false  
+        state.loginloading=false  
               
     },
 

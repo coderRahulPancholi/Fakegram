@@ -7,26 +7,39 @@ const initialState = {
 export const postreducer = createReducer(initialState,{
 
     likerequest:(state,action)=>{
-        state.loading=true        
+        state.likeloading=true        
     },
   likesuccess:(state,action)=>{
-        state.loading=false  ;
+        state.likeloading=false  ;
     },
     likefail:(state,action)=>{
-        state.loading=false  
+        state.likeloading=false  
               
     },
 
     commentrequest:(state,action)=>{
-        state.loading=true        
+        state.commentloading=true        
     },
   commentsuccess:(state,action)=>{
-        state.loading=false  ;
+        state.commentloading=false  ;
     },
     commentfail:(state,action)=>{
-        state.loading=false  
+        state.commentloading=false  
               
     },
+    creatingpost:(state,action)=>{
+        state.createpostloading=true        
+    },
+  postcreated:(state,action)=>{
+        state.createpostloading=false  
+        state.alertsuccess=true
+    },
+    postcreatefail:(state,action)=>{
+        state.createpostloading=false  
+              
+    },
+
+
 
 
 

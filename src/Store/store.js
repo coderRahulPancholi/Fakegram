@@ -8,7 +8,7 @@ import { postreducer } from '../Reducer/postreducer'
 const store = configureStore({
     reducer: {
 mainreducer:costomreducer,
-postscall:postreducer,
+postreducer:postreducer,
 
     }
   })

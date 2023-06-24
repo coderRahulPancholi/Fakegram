@@ -10,19 +10,19 @@ import { Global_Url } from '../../url'
 
 
 
-function Followers() {
-  const {followersof}= useParams()
+function Likes() {
+  const {postid}= useParams()
   const dispacth = useDispatch()
   const [followers,setfollowers] = useState()
   const navigate = useNavigate()
   const {loading} = useSelector((s)=>s.mainreducer)
 
-  const getfollowers = async () => {
+  const getLikes = async () => {
     dispacth({
      type:"loadingtrue"
     })
      const getfoll = await axios.get(
-       `${Global_Url}/user/followers/${followersof}`,
+       `${Global_Url}/user/likesBy/${postid}`,
        {
          headers: {
            "Content-Type": "application/json",
@@ -30,8 +30,8 @@ function Followers() {
          withCredentials: true,
        }
      );
-     console.log(getfoll.data.followers);
-     setfollowers(getfoll.data.followers)
+     console.log(getfoll.data.likes);
+     setfollowers(getfoll.data.likes)
 
      
      dispacth({
@@ -42,7 +42,7 @@ function Followers() {
    }
 
    useEffect(()=>{
-getfollowers()
+getLikes()
     // eslint-disable-next-line
       },[])
 
@@ -52,7 +52,7 @@ getfollowers()
        <div className='sub  '>
         <div className=' df ac ' style={{width:"100%",gap:"15px",padding:"15px"}}>
             <BiArrowBack size={20} onClick={()=>navigate(-1)} style={{cursor:"pointer"}}/>
-            <b>Followers</b>
+            <b>Likes By</b>
            
         </div>
 
@@ -63,12 +63,12 @@ getfollowers()
                 )
             })}
 
-{loading && <Loading/>}
+ {loading && <Loading/>}
         </div>
         </div>
     </Ewrapper>
   )
 }
 
-export default Followers
+export default Likes
 

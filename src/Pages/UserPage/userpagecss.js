@@ -6,6 +6,7 @@ const UserPageWrapper = styled.div`
   justify-content: center;
   min-height: calc(100vh - 140px);
 
+
 .dfc{
     display: flex;
     flex-direction: column;
@@ -25,20 +26,23 @@ const UserPageWrapper = styled.div`
     max-width: 600px;
 gap: 15px;
 padding: 5px;
+/* background-color: white; */
+padding-bottom: 70px;
 
 
   }
 
 
 .profileinfo{
-    /* background-color: wheat; */
-    background-color: white;
+
+
     width: 100%;
 /* height: 30%; */
     min-height: 200px;
     border-radius: 10px;
     padding: 20px;
     /* gap: 10px; */
+    background-color: white;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 

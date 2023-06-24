@@ -9,6 +9,7 @@ import { commentonpost } from '../../Actions/post'
 import Loading from '../Loader/Loading'
 import { BiArrowBack } from 'react-icons/bi'
 import { Global_Url} from '../../url'
+import { CircularProgress } from '@mui/material'
 
 
 
@@ -18,6 +19,7 @@ const navigate = useNavigate()
 const {postid} = useParams()
 const [thipost,setThispost] = useState(undefined)
 const { user,loading } = useSelector((s) => s.mainreducer);
+const { commentloading} = useSelector((s) => s.postreducer);
 const [comment,setComment] = useState("")
 const getpost = async () => {
    dispacth({
@@ -65,11 +67,12 @@ getpost()
         {loading&&<Loading/>}
         {thipost && <div className="post">
 
-      <Card caption={thipost.caption} likes={thipost.likes.length} likearray={thipost.likes} comments={thipost.comments.length} date={thipost.postedon} isliked={thipost.likes.some((e)=>e._id === user._id)} id={thipost._id} image={thipost.imageUrl} userImage={thipost.ownerid.profileUrl}/>
+      <Card caption={thipost.caption} likes={thipost.likes.length} likearray={thipost.likes} comments={thipost.comments.length} date={thipost.postedon} isliked={thipost.likes.some((e)=>e._id === user._id)} id={thipost._id} image={thipost.imageUrl} userImage={thipost.ownerid.profileUrl} username={thipost.ownerid.username}/>
       <div className="postcomments dfc">
         <div className='commentinput df ac'>
           <input type="text" placeholder='Comment Here' value={comment} onChange={(e)=>setComment(e.target.value)}/>
-        <AiOutlineSend onClick={sendcomment} className="cp" size={22}/>
+{commentloading?<CircularProgress  />:        <AiOutlineSend onClick={sendcomment} className="cp" size={22}/>}
+
           
          
         </div>
@@ -81,8 +84,8 @@ getpost()
                 <div className='comment df ac' key={i}>
                <div><img src={e.userid.profileUrl?e.userid.profileUrl:"https://images.squarespace-cdn.com/content/v1/5d91b73a83856c46984c2857/1643318392157-X8TE36EZ6VAH7036AZ1W/Creative+captions+for+Facebook+profile+pictures.jpg?format=1500w"} alt="" style={{width:"30px",height:"30px",borderRadius:"100%"}}/></div>
                <div >
-<h5 onClick={()=>navigate(`/user/${e.userid._id}`)}>{e.username}</h5>
-<p>{e.comment }</p>
+<p onClick={()=>navigate(`/user/${e.userid._id}`)} className='cp'>{e.username}</p>
+<h6>{e.comment }</h6>
                </div>
                 </div>
             )
@@ -168,7 +171,7 @@ justify-content: center;
 padding: 5px;
 gap: 5px;
 /* border-radius: 7px; */
-border-bottom: 0.02px solid gray;
+/* border-bottom: 0.02px solid gray; */
 
 h5{
   text-decoration: underline;
