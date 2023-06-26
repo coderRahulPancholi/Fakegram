@@ -64,11 +64,12 @@ export default function Login() {
 <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)} />
 
 
+
 {loginloading?<Loading/>:<button type="submit" className="cp btn lbtn w100">Login</button>}
 
   </form>
   <h5>OR</h5>
-<p className="regp">Don't have a account yet?<Link href=""> <b>Register</b></Link></p>
+<p className="regp">Don't have a account yet?<Link to={'/register'}> <b>Register</b></Link></p>
 </div>}
 
 

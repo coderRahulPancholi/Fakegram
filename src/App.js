@@ -20,6 +20,7 @@ import Followings from "./Commponents/Edit/Following";
 import GlobalStyle from "./Globalcss";
 import Likes from "./Commponents/Edit/Likes";
 import UserSuggetion from "./Pages/UserSuggetion/UserSuggetion";
+import Register from "./Pages/Login/Register";
 // import { Alert, AlertTitle } from "@mui/material";
 
 
@@ -65,6 +66,7 @@ function App() {
       <Routes>
         <Route path="*" element={isauthed ? <Home /> : <Login />}/>
         <Route path="/" element={isauthed ? <Home /> : <Login />}/>
+        <Route path="/register" element={<Register/>}/>
         <Route path="/newpost" element={isauthed ? <NewPost /> : <Login />}/>
         <Route path="/about" element={isauthed ? <About /> : <Login />}/>
         <Route path="/allusers" element={isauthed ? <Allusers /> : <Login />}/>

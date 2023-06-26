@@ -23,6 +23,7 @@ export const costomreducer = createReducer(initialState,{
     },
     loginfail:(state,action)=>{
         state.loginloading=false  
+        state.errormessage=action.payload
               
     },
 

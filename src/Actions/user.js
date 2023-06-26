@@ -35,12 +35,11 @@ export const loginuser =(email,password)=> async(dispatch)=>{
        })
         
     } catch (error) {
-        console.log(error.response.status)
-        if(error.response.status === 404){
-            alert("No user found Please Register")
-        }
+        console.log(error.response)
+        alert(error.response.data.messeage)
         dispatch({
-            type:"loginfail"
+            type:"loginfail",
+            payload:error.response.data.messeage
         })
 
         
