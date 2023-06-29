@@ -25,7 +25,7 @@ function Home() {
               </Box>
             )}
       <div className="homecontainer">
-        {followingposts?followingposts.filter((e)=>new Date(e.postedon).getDate()  === new Date(Date.now()).getDate()).length!==0?<h5>Today </h5>:null:null }
+        {followingposts&&followingposts.filter((e)=>new Date(e.postedon).getDate()  === new Date(Date.now()).getDate()).length!==0&&<h5>Today </h5>}
      
 
 
@@ -46,7 +46,7 @@ function Home() {
         )}
       </div>
       <div className="homecontainer">
-      {followingposts?followingposts.filter((e)=>new Date(e.postedon).getDate()  !== new Date(Date.now()).getDate()).length!==0?<h5>Old </h5>:null:null }
+      {followingposts&&followingposts.filter((e)=>new Date(e.postedon).getDate()  !== new Date(Date.now()).getDate()).length!==0&&<h5> Old Posts </h5> }
         
         {followingposts ? followingposts.length !== 0?(
           followingposts.filter((e)=>new Date(e.postedon).getDate()  !== new Date(Date.now()).getDate()).map((e) => {

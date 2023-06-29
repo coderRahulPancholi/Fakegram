@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Wrapper from "./about";
 import { useDispatch, useSelector } from "react-redux";
 import { loaduser, rootuserposts } from "../../Actions/user";
@@ -10,7 +10,7 @@ import TextareaAutosize from "react-textarea-autosize";
 
 import Loading from "../../Commponents/Loader/Loading";
 import { useNavigate } from "react-router-dom";
-import Editprofile from "../../Commponents/Edit/Editprofile";
+
 import { BiArrowBack } from "react-icons/bi";
 
 function About({ profileImage, bio, postsArray }) {
@@ -27,7 +27,7 @@ function About({ profileImage, bio, postsArray }) {
     (state) => state.mainreducer
   );
 
-  const [edit, setEdit] = useState(false);
+  
 
   // const onchng = (e)=>{
   //   setdate(e.target.value)
@@ -35,14 +35,13 @@ function About({ profileImage, bio, postsArray }) {
 
   // }
 
-  return edit ? (
-    <Editprofile setedit={setEdit} />
-  ) : (
+  return  (
+   
+   
     <Wrapper>
-      <div className="instagram-profile-card">
         <div
-          className=" df ac "
-          style={{ width: "100%", gap: "15px", padding: "15px" }}
+          className=" df ac  "
+          style={{ width: "100%", gap: "5px",padding:"15px",maxWidth:"600px" }}
         >
           <BiArrowBack
             size={20}
@@ -51,7 +50,8 @@ function About({ profileImage, bio, postsArray }) {
           />
           <b>{user.username}</b>
         </div>
-        <div className="profile-info">
+      <div className="instagram-profile-card">
+        <div className="profile-info wrap">
           <div className="user-info ">
             <img
               src={
@@ -95,9 +95,14 @@ function About({ profileImage, bio, postsArray }) {
         <div className="bios dfc">
           <b>Bio</b>
           <TextareaAutosize minRows={3} value={user.bio} />
+        </div>
+        <div className="w50 df ac jc gap10">
 
-          <button className="editbtn" onClick={() => setEdit(!edit)}>
-            Edit{" "}
+        <button className="editbtn" onClick={()=>navigate("/editprofile")} >
+            Edit Profile
+          </button>
+        <button className="editbtn" >
+           Share Profile
           </button>
         </div>
       </div>
@@ -128,7 +133,7 @@ function About({ profileImage, bio, postsArray }) {
       </div>
       {loading && <Loading />}
     </Wrapper>
-  );
+  )
 }
 
 export default About;

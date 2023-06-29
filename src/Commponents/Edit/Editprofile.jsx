@@ -4,9 +4,10 @@ import {GrClose} from 'react-icons/gr'
 import { useDispatch, useSelector } from 'react-redux'
 import { loaduser, updateUserPhoto, updateprofile } from '../../Actions/user'
 import TextareaAutosize from 'react-textarea-autosize';
+import { useNavigate } from 'react-router-dom'
 // import Loading from '../Loader/Loading'
 
-function Editprofile({setedit}) {
+function Editprofile() {
 
     const {user,loading} = useSelector(s=>s.mainreducer)
     const[editedbio,setEditedbio]=useState(user.bio)
@@ -18,9 +19,44 @@ function Editprofile({setedit}) {
     const[file,setFile]=useState("")
     const [imgpreview,setImgpreview] = useState(user.profileUrl)
     
+    const states = [ "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu and Kashmir",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttarakhand",
+    "Uttar Pradesh",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli",
+    "Daman and Diu",
+    "Delhi",
+    "Lakshadweep",
+    "Puducherry"]
 
-
-
+const navigate = useNavigate()
 
 const dispatch = useDispatch()
 
@@ -29,7 +65,7 @@ const dispatch = useDispatch()
         await dispatch(updateUserPhoto(file))
        await dispatch(updateprofile(editedname,editedbio,editednum,editeddob,editedbcity,editedstate))
        await dispatch(loaduser())
-       setedit(false)
+       navigate("/about")
     }
 
     
@@ -41,7 +77,6 @@ const url = URL.createObjectURL(e.target.files[0]);
 setFile(e.target.files[0])
 setImgpreview(url)
 
-
  }
    
   return (
@@ -49,7 +84,7 @@ setImgpreview(url)
       <div className='sub  '>
         <div className='uppersub'>
             <div className='df ac' style={{gap:"15px"}}>
-                <GrClose size={20} onClick={()=>setedit(false)}/>
+                <GrClose size={20} onClick={()=>navigate("/about")} />
                 <h4>Edit Profile</h4>
             </div>
             <button onClick={updatedata}>{loading?"Updating":"Update"}</button>
@@ -72,7 +107,7 @@ setImgpreview(url)
         <div>
 
         <label htmlFor="number">Mobile Number</label>
-        <input type="text" name='number' value={editednum} onChange={(e)=>setEditednum(e.target.value)}  />
+        <input type="text" name='number' value={editednum} onChange={(e)=>setEditednum(e.target.value)} maxLength={10} />
         </div>
         <div> 
 
@@ -82,15 +117,27 @@ setImgpreview(url)
 
     </div>
     <div className='bio df'>
+        
+        <div> 
+
+        <label htmlFor="state">State</label>
+        <select name="state" id="state" value={editedstate} onChange={(e)=>setEditedstate(e.target.value)}>
+            
+            {states.map((e)=>{
+                return(
+
+                    <option value={e} selected={editedstate===e&&true}>{e}</option>
+                )
+            })}
+ 
+         </select>
+        {/* <input type="text" name='state' value={editedstate} onChange={(e)=>setEditedstate(e.target.value)} /> */}
+        </div>
         <div>
 
         <label htmlFor="city">City</label>
         <input type="text" name='city' value={editedbcity} onChange={(e)=>setEditedcity(e.target.value)} />
-        </div>
-        <div> 
-
-        <label htmlFor="state">State</label>
-        <input type="text" name='state' value={editedstate} onChange={(e)=>setEditedstate(e.target.value)} />
+       
         </div>
 
     </div>

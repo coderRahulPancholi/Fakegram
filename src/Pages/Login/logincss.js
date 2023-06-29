@@ -62,6 +62,13 @@ color: white;
     font-size: 12px;
 }
 
+.passed{
+    border: 1px solid green;
+}
+.failed{
+    border: 1px solid red;
+}
+
 `
 
 

@@ -42,15 +42,15 @@ export const costomreducer = createReducer(initialState,{
 
 
     loadallusersrequest:(state,action)=>{
-        state.loading=true        
+        state.searching=true        
     },
     loadallusersuccess:(state,action)=>{
-        state.loading=false  ;
+        state.searching=false  ;
         state.allusers = action.payload ;  
         
     },
     loadalluserfail:(state,action)=>{
-        state.loading=false        
+        state.searching=false        
     },
 
     

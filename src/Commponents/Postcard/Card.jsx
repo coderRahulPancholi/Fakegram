@@ -47,7 +47,7 @@ const Card = ({
   return (
     <div className="instagram-card " key={id}>
       <div className="user-inf df ac jsb">
-        <div className="df ac">
+        <div className="df ac " >
           <img
             src={
               userImage

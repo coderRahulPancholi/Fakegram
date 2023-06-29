@@ -33,8 +33,11 @@ display: flex;
 
     input{
         width: 100%;
-        padding: 7px;
+        padding: 15px;
         outline: none;
+        border-radius: 10px;
+        border: none;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     }
   
 }

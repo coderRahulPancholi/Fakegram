@@ -5,17 +5,18 @@ width: 100vw;
 display: flex;
 flex-direction: column;
 align-items: center;
+position: relative;
 
 gap: 10px;
 /* min-height: calc(100vh - 140px); */
 margin-bottom: 80px;
 
 .instagram-profile-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  
+  /* background-color: #ffffff; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); */
+  padding: 15px;
+
   /* margin: 20px; */
   max-width: 600px;
   width: 100%;
@@ -23,14 +24,14 @@ margin-bottom: 80px;
 
 .profile-info {
   display: flex;
-  justify-content: space-around;
-  
+  /* justify-content: space-evenly; */
+  /* padding: 15px; */
   align-items: center;
 }
 
 .profile-image {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   /* margin-right: 20px; */
 }
@@ -43,7 +44,7 @@ margin-bottom: 80px;
 }
 
 .name {
-  font-size: 12px;
+  font-size: 13px;
   margin: 0;
   
 }
@@ -56,8 +57,10 @@ margin-bottom: 80px;
 
 .stats {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: center;
 gap: 20px;
+flex: 1;
+flex-basis: 100px;
 
   /* margin-top: 20px; */
 }
@@ -67,6 +70,7 @@ gap: 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* width: 20%; */
 }
 
 .number {
@@ -80,10 +84,10 @@ gap: 20px;
   /* margin-top: 10px; */
 }
 .bios{
-  min-height: 100px;
+  /* min-height: 100px; */
   width: 100%;
 /* background-color: #a0a0a0; */
-padding: 5px;
+/* padding: 15px; */
 position: relative;
 
 
@@ -109,10 +113,12 @@ textarea{
    width: 100%;
     max-width: 600px;
     display: flex;
+
     gap: 15px;
     /* background-color: aliceblue; */
-    padding: 10px;
+    padding:10px;
     flex-wrap: wrap;
+    
 }
 .posts{
   width: 100%;
@@ -120,6 +126,14 @@ textarea{
   background-color: whitesmoke;
   padding: 10px;
  
+}
+
+.editbtn{
+padding: 5px;
+border-radius: 2px;
+border: none;
+box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+cursor: pointer;
 }
 
 `

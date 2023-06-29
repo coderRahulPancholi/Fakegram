@@ -21,6 +21,7 @@ import GlobalStyle from "./Globalcss";
 import Likes from "./Commponents/Edit/Likes";
 import UserSuggetion from "./Pages/UserSuggetion/UserSuggetion";
 import Register from "./Pages/Login/Register";
+import Editprofile from "./Commponents/Edit/Editprofile";
 // import { Alert, AlertTitle } from "@mui/material";
 
 
@@ -75,6 +76,7 @@ function App() {
         <Route path="/post/:postid" element={isauthed ? <ViewPost /> : <Login />}/>
         <Route path="/followers/:followersof" element={isauthed ? <Followers /> : <Login />}/>
         <Route path="/followings/:followingsof" element={isauthed ? <Followings /> : <Login />}/>
+        <Route path="/editprofile" element={isauthed ? <Editprofile /> : <Login />}/>
         <Route path="/postlikesby/:postid" element={isauthed ? <Likes /> : <Login />}/>
       </Routes>
     

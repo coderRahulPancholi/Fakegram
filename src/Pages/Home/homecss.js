@@ -15,12 +15,12 @@ margin-bottom: 80px;
 
 .homecontainer{
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     
     /* background-color: aliceblue; */
     display: flex;
    flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     padding: 5px;
 
