@@ -70,7 +70,7 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/newpost" element={isauthed ? <NewPost /> : <Login />}/>
         <Route path="/about" element={isauthed ? <About /> : <Login />}/>
-        <Route path="/allusers" element={isauthed ? <Allusers /> : <Login />}/>
+        <Route path="/search" element={isauthed ? <Allusers /> : <Login />}/>
         <Route path="/suggestedusers" element={isauthed ? <UserSuggetion /> : <Login />}/>
         <Route path="/user/:userid" element={isauthed ? <UserPage /> : <Login />}/>
         <Route path="/post/:postid" element={isauthed ? <ViewPost /> : <Login />}/>

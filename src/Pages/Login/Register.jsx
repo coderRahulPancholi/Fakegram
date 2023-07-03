@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import styled from "styled-components";
 import "./logincss.js";
 import { useSelector } from "react-redux";
@@ -109,9 +109,13 @@ export default function Register() {
       }),
     });
     const res = await udata.json();
-    console.log(res);
+    console.log(udata);
     setResmes(res.messeage);
     alert(res.messeage);
+    if(udata.status === 408){
+     alert("Time Out")
+     navigate("/");
+    }
     if (res.sucess) {
       navigate("/");
     }
@@ -134,6 +138,12 @@ export default function Register() {
     console.log(res);
     setResmes(res.messeage);
   };
+
+  useEffect(()=>{
+if(email.length<5){
+  setMailpass(false)
+}
+  },[email])
 
   return (
     <LoginWrapper className="df ac jc">
@@ -158,15 +168,16 @@ export default function Register() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 onKeyUp={
-                  email.length > 5 && email.includes("@") ? emailcheck : null
+                  email.length > 5 ? emailcheck :null
                 }
                 className={
-                  email.length > 5 && email.includes("@")
-                    ? mailpass
-                      ? "passed"
+                  email.length > 5 && email.includes("@")?mailpass
+                    ?
+                       "passed"
                       : "failed"
-                    : null
+                   :null
                 }
+                
               />
 
               <input
@@ -183,6 +194,7 @@ export default function Register() {
                       : "failed"
                     : null
                 }
+                
               />
 
               <input
@@ -191,6 +203,7 @@ export default function Register() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
+               
               />
 
               <input
@@ -199,6 +212,8 @@ export default function Register() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={6}
+                
               />
 
               <h4>{resmes}</h4>
@@ -217,11 +232,14 @@ export default function Register() {
             <form action="">
               <p>{resmes}</p>
               <input
-                type="text"
+                type="number"
                 placeholder="Enter Otp"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
+                maxLength={"6"}
+
               />
+             
               <button onClick={resendOtp}>Resend Otp</button>
               <button onClick={verifyOtp} className="cp btn lbtn w100">
                 Verify
